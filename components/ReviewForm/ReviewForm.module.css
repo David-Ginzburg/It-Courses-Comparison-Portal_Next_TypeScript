@@ -63,4 +63,9 @@
   .reviewForm {
     grid-template-columns: [start] 1fr [end];
   }
+
+  .name,
+  .title {
+    width: 100%;
+  }
 }
