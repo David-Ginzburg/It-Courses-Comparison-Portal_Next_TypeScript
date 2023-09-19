@@ -113,7 +113,7 @@ export const Product = ({
             <Divider />
           </div>
         ))}
-        <ReviewForm productId={product._id} />
+        <ReviewForm productid={product._id} />
       </Card>
     </>
   );
