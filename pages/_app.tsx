@@ -1,17 +1,21 @@
-import { AppProps } from 'next/app';
-import '../styles/globals.css';
-import Head from 'next/head';
-import React from 'react';
+import { AppProps } from "next/app";
+import "../styles/globals.css";
+import Head from "next/head";
+import React from "react";
+import axios from "axios";
+
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_DOMAIN + "/api";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-	
-	return <>
-		<Head>
-			<title>MyTop - наш лучший топ</title>
-			<link rel="icon" href="/favicon.ico" />
-		</Head>
-		<Component {...pageProps} />
-	</>;
+  return (
+    <>
+      <Head>
+        <title>MyTop - наш лучший топ</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;
