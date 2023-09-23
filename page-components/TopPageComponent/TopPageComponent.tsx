@@ -17,7 +17,7 @@ export const TopPageComponent = ({
     { products, sort: SortEnum.Rating }
   );
   const y = useScrollY();
-  console.log(y);
+
   const setSort = (sort: SortEnum) => {
     dispatchSort({ type: sort });
   };
