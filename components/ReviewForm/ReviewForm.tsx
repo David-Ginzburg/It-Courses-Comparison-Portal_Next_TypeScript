@@ -29,7 +29,7 @@ export const ReviewForm = ({
 
   const onSubmit = async (formData: IReviewForm) => {
     try {
-      const { data } = await axios.put<IreviewSendResponse>(
+      const { data } = await axios.post<IreviewSendResponse>(
         API.review.createDemo,
         { ...formData, productid }
       );
