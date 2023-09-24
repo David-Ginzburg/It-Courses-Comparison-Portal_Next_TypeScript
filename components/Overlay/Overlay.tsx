@@ -1,8 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import styles from "./Overlay.module.css";
+import { OverlayProps } from "./Overlay.props";
 
-export const Overlay = ({ isLoading, children }) => {
+export const Overlay = ({
+  isLoading,
+  children,
+}: OverlayProps): null | createPortal => {
   const overlayRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {

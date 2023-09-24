@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { firstLevelMenu } from "../../helpers/helpers";
 import { Variants, motion } from "framer-motion";
 
-export const Menu = () => {
+export const Menu = (): JSX.Element => {
   const { menu, setMenu, firstCategory } = useContext(AppContext);
   const router = useRouter();
 
