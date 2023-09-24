@@ -1,14 +1,11 @@
 {
-	"extends": [
-		"stylelint-config-standard",
-		"stylelint-order-config-standard"
-	],
-	"plugins": [
-		"stylelint-order"
-	],
-	"rules": {
-		"indentation": "tab",
-		"color-hex-case": "upper",
-        "font-family-name-quotes": "always-where-required"
-	}
+  "extends": ["stylelint-config-standard", "stylelint-order-config-standard"],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "indentation": "tab",
+    "color-hex-case": "upper",
+    "font-family-name-quotes": "always-where-required",
+    "selector-class-pattern": null,
+    "declaration-block-no-redundant-longhand-properties": null
+  }
 }
