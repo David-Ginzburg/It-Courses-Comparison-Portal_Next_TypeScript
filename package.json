@@ -7,7 +7,8 @@
     "dev": "next dev",
     "export": "next export",
     "debug": "NODE_OPTIONS='--inspect' next dev",
-    "build": "eslint . --max-warnings 0 && next build",
+    "build": "next build",
+    "check and build": "eslint . --max-warnings 0 && next build",
     "start": "next start",
     "stylelint": "stylelint \"**/*.css\" --fix",
     "lint": "eslint . --max-warnings 0"
