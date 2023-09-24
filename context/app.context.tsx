@@ -7,13 +7,13 @@ export interface IAppContext {
   menu: MenuItem[];
   firstCategory: TopLevelCategory;
   setMenu?: (newMenu: MenuItem[]) => void;
-  isServerComponentLoading?: boolean;
+  isServerComponentStartLoading?: boolean;
 }
 
 export const AppContext = createContext<IAppContext>({
   menu: [],
   firstCategory: TopLevelCategory.Courses,
-  isServerComponentLoading: false,
+  isServerComponentStartLoading: false,
 });
 
 export const AppContextProvider = ({
@@ -27,15 +27,15 @@ export const AppContextProvider = ({
   };
 
   const router = useRouter();
-  const [isServerComponentLoading, setIsServerComponentLoading] =
+  const [isServerComponentStartLoading, setIsServerComponentStartLoading] =
     useState(false);
 
   const handleStartLoading = () => {
-    setIsServerComponentLoading(true);
+    setIsServerComponentStartLoading(true);
   };
 
   const handleFinishLoading = () => {
-    setIsServerComponentLoading(false);
+    setIsServerComponentStartLoading(false);
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export const AppContextProvider = ({
         menu: menuState,
         firstCategory,
         setMenu,
-        isServerComponentLoading,
+        isServerComponentStartLoading,
       }}
     >
       {children}

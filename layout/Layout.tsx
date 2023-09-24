@@ -9,12 +9,12 @@ import { AppContext } from "../context/app.context";
 import { Overlay, Spinner, Up } from "../components";
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
-  const { isServerComponentLoading } = useContext(AppContext);
+  const { isServerComponentStartLoading } = useContext(AppContext);
   return (
     <div className={styles.wrapper}>
       <Header className={styles.header} />
       <Sidebar className={styles.sidebar} />
-      <Overlay isLoading={isServerComponentLoading}>
+      <Overlay isLoading={isServerComponentStartLoading}>
         <Spinner />
       </Overlay>
       <div className={styles.body}>{children}</div>
