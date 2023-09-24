@@ -14,7 +14,7 @@ export const Menu = () => {
 
   const variants: Variants = {
     visible: {
-      marginBottom: 20,
+      marginBottom: 15,
       transition: {
         when: "beforeChildren",
         staggerChildren: 0.1,
@@ -28,7 +28,7 @@ export const Menu = () => {
   const variantsChildren: Variants = {
     visible: {
       opacity: 1,
-      height: 29,
+      height: "fit-content",
     },
     hidden: {
       opacity: 0,
