@@ -17,7 +17,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          IMAGE_NAME: docker.pkg.github.com/David-Ginzburg/It-Courses-Comparison-Portal_Next_TypeScript/top-courses-app
+          IMAGE_NAME: docker.pkg.github.com/david-ginzburg/it-courses-comparison-portal_next_typescript/top-courses-app
           IMAGE_TAG: develop
         run: |
           echo "$DOCKER_PASSWORD" | docker login docker.pkg.github.com -u "$DOCKER_USERNAME" --password-stdin
