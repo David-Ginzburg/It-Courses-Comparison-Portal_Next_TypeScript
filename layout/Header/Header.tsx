@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 import cn from "classnames";
 import Logo from "../Logo.svg";
 import { ButtonIcon } from "../../components";
-import { Variants, motion } from "framer-motion";
+import { Variants, motion, useReducedMotion } from "framer-motion";
 import { Sidebar } from "../Sidebar/Sidebar";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/app.context";
@@ -11,6 +11,7 @@ import { AppContext } from "../../context/app.context";
 export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const { isServerComponentStartLoading } = useContext(AppContext);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     setIsOpened(false);
@@ -25,7 +26,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
       },
     },
     closed: {
-      opacity: 0,
+      opacity: shouldReduceMotion ? 1 : 0,
       x: "100%",
     },
   };

@@ -26,6 +26,10 @@ export const AppContextProvider = ({
     setMenuState(newMenu);
   };
 
+  useEffect(() => {
+    setMenuState(menu);
+  }, [menu]);
+
   const router = useRouter();
   const [isServerComponentStartLoading, setIsServerComponentStartLoading] =
     useState(false);
