@@ -24,7 +24,12 @@ export const Product = motion(
 
       const variants: Variants = {
         visible: { opacity: 1, height: "auto" },
-        hidden: { opacity: 0, height: 0 },
+        hidden: {
+          opacity: 0,
+          height: 0,
+          display: "flex",
+          flexDirection: "column",
+        },
       };
 
       const scrollToReview = () => {

@@ -78,12 +78,14 @@ export const TopPageComponent = ({
         />
       )}
       <Htag tag="h2">Получаемые навыки</Htag>
-      {page?.tags &&
-        page.tags.map((t) => (
-          <Tag key={t} color="primary">
-            {t}
-          </Tag>
-        ))}
+      <div className={styles.tagsWrapper}>
+        {page?.tags &&
+          page.tags.map((t) => (
+            <Tag key={t} color="primary">
+              {t}
+            </Tag>
+          ))}
+      </div>
     </div>
   );
 };

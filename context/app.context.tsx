@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 export interface IAppContext {
   menu: MenuItem[];
   firstCategory: TopLevelCategory;
+  firstCategoryName?: string;
   setMenu?: (newMenu: MenuItem[]) => void;
   isServerComponentStartLoading?: boolean;
 }
@@ -14,6 +15,7 @@ export const AppContext = createContext<IAppContext>({
   menu: [],
   firstCategory: TopLevelCategory.Courses,
   isServerComponentStartLoading: false,
+  firstCategoryName: "",
 });
 
 export const AppContextProvider = ({
