@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
+import { GetServerSideProps, GetStaticPropsContext } from "next";
 import React from "react";
 import { withLayout } from "../../layout/Layout";
 import axios from "axios";
@@ -13,14 +13,7 @@ function Type({ firstCategoryName }: TypeProps): JSX.Element {
 
 export default withLayout(Type);
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: firstLevelMenu.map((m) => "/" + m.route),
-    fallback: true,
-  };
-};
-
-export const getStaticProps: GetStaticProps<TypeProps> = async ({
+export const getServerSideProps: GetServerSideProps<TypeProps> = async ({
   params,
 }: GetStaticPropsContext<ParsedUrlQuery>) => {
   if (!params) {
@@ -51,6 +44,7 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({
   return {
     props: {
       menu: menu ?? [],
+      firstCategory: firstCategoryItem.id,
       firstCategoryName: firstCategoryItem.name,
     },
   };
@@ -58,5 +52,6 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({
 
 interface TypeProps extends Record<string, unknown> {
   menu: MenuItem[];
+  firstCategory: number;
   firstCategoryName?: string;
 }
