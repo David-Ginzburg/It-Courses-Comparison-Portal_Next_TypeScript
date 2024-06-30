@@ -1,10 +1,19 @@
-FROM node:14-alpine
+ARG NODE_VERSION=22-alpine
+
+# build
+FROM node:${NODE_VERSION} as build
 WORKDIR /opt/app
-ADD package.json package.json
-RUN npm install
-ADD . .
-ENV NODE_ENV production
+COPY ./package*.json ./
+RUN npm ci --omit=dev
+COPY . .
 RUN npm run build
-RUN npm prune --production
+
+# deploy
+FROM node:${NODE_VERSION}
+WORKDIR /opt/app
+COPY --from=build /opt/app/.next ./.next
+COPY --from=build /opt/app/node_modules ./node_modules
+COPY ./package*.json ./
+ENV NODE_ENV production
 CMD ["npm", "start"]
 EXPOSE 3000
