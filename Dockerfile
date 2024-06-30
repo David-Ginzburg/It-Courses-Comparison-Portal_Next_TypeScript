@@ -14,7 +14,7 @@ WORKDIR /opt/app
 COPY --from=build /opt/app/.next ./.next
 COPY --from=build /opt/app/node_modules ./node_modules
 COPY ./package*.json ./
-RUN npm prune --production
+RUN npm prune --omit=dev
 ENV NODE_ENV production
 CMD ["npm", "start"]
 EXPOSE 3000
